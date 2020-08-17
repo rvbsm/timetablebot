@@ -1,2 +1,2 @@
-TOKEN = '1386094416:AAFs2ElaUzTSkrxzw60KmqddbHZiOrmKMRQ'
-APP_NAME = 'fivelyceum-bot'
+TOKEN = ''	#TOKEN FROM BotFather
+APP_NAME = ''	#APP NAME FROM HEROKU
