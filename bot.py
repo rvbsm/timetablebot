@@ -25,9 +25,11 @@ server = Flask(__name__)
 def start(message):
 	user_id = message.chat.id
 	if not db.user_exist(user_id):
-		db.add_user(user_id)
+		db.add_user(message.from_user.username, user_id)
 		menu = menu_button()
 		bot.send_message(user_id, HELLO_FIRST.format(message.from_user.first_name), reply_markup=menu, parse_mode='HTML')
+		classes = class_button()
+		bot.send_message(user_id, CLASS_TEXT, reply_markup=classes)
 	elif db.user_exist(user_id):
 		sl = db.check_class(user_id)
 		classroom = "".join(sl)
@@ -48,11 +50,11 @@ def settings(message):
 def message(message):
 	user_id = message.chat.id
 	global z
-	if message.text == TIMETABLE_BUTTON and db.user_exist(user_id):
+	if message.text == TIMETABLE_BUTTON and db.class_exist(user_id):
 		when = when_button()
 		bot.send_message(user_id, 'На когда?', reply_markup=when)
 		z = 0
-	elif message.text == TIMETABLE_BUTTON or CHANGE_CLASS_BUTTON:
+	elif message.text == TIMETABLE_BUTTON or message.text == CHANGE_CLASS_BUTTON:
 		classes = class_button()
 		bot.send_message(user_id, CLASS_TEXT, reply_markup=classes)
 	elif message.text in CLASS_LIST:
@@ -84,24 +86,21 @@ def message(message):
 		z = None
 	elif message.text == SETTINGS_BUTTON:
 		settings(message)
-	elif message.text in CLASS_LIST and x == 1:
 	else:
 		start(message)
 	classroom = aclassrom = classes = itembtn9a = itembtn9b = itembtn9v = itembtn10a = itembtn10b = itembtn10v = itembtn11a = itembtn11b = itembtn11v = t = None
-
-def self_change(self, message)
 
 def timetable(message, x):
 	user_id = message.chat.id
 	sl = db.check_class(user_id)
 	table_send(message, sl, x)
-	day = sl = l = x = None
+	sl = l = x = None
 
 def atimetable(message, x):
 	user_id = message.chat.id
 	sl = db.check_aclass(user_id)
 	table_send(message, sl, x)
-	day = sl = l = x = None
+	sl = l = x = None
 
 def table_send(message, sl, x):
 	user_id = message.chat.id
@@ -116,7 +115,7 @@ def table_send(message, sl, x):
 		bot.send_message(user_id, SUNDAY_TEXT.format(week))
 	day = week = None
 
-"""@server.route('/' + TOKEN, methods=['POST'])
+@server.route('/' + TOKEN, methods=['POST'])
 def getMessage():
 	bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
 	return "!", 200
@@ -125,9 +124,9 @@ def getMessage():
 def webhook():
 	bot.remove_webhook()
 	bot.set_webhook(url='https://{}.herokuapp.com/'.format(APP_NAME) + TOKEN)
-	return "Bot is working", 200"""
+	return "Bot is working", 200
 
 
 if __name__ == '__main__':
-#	server.run(host="0.0.0.0", port=int(os.environ.get('PORT', 5000)))
-	bot.polling(none_stop=True)
+	server.run(host="0.0.0.0", port=int(os.environ.get('PORT', 5000)))
+#	bot.polling(none_stop=True)
