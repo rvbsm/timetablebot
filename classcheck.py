@@ -2,134 +2,127 @@ import datetime
 from sqlite import SQLData
 
 db = SQLData('db/data.db')
-tt9a = SQLData('db/timetable9a.db')
-tt9b = SQLData('db/timetable9b.db')
-tt9v = SQLData('db/timetable9v.db')
-tt10a = SQLData('db/timetable10a.db')
-tt10b = SQLData('db/timetable10b.db')
-tt10v = SQLData('db/timetable10v.db')
-tt11a = SQLData('db/timetable11a.db')
-tt11b = SQLData('db/timetable11b.db')
-tt11v = SQLData('db/timetable11v.db')
+tt = SQLData('db/timetable.db')
 
 
 class ClassCheck:
 	def check(self, l):
+		global day
 		if l == '9-А':
 			if datetime.datetime.today().weekday() == 0:
-				day = str(tt9a.mon())
+				day = str(tt.mon('9a'))
 			elif datetime.datetime.today().weekday() == 1:
-				day = str(tt9a.tue())
+				day = str(tt.tue('9a'))
 			elif datetime.datetime.today().weekday() == 2:
-				day = str(tt9a.wed())
+				day = str(tt.wed('9a'))
 			elif datetime.datetime.today().weekday() == 3:
-				day = str(tt9a.thur())
+				day = str(tt.thur('9a'))
 			elif datetime.datetime.today().weekday() == 4:
-				day = str(tt9a.fri())
+				day = str(tt.fri('9a'))
 			elif datetime.datetime.today().weekday() == 5:
-				day = str(tt9a.sat())
+				day = str(tt.sat('9a'))
 		elif l == '9-Б':
 			if datetime.datetime.today().weekday() == 0:
-				day = str(tt9b.mon())
+				day = str(tt.mon('9b'))
 			elif datetime.datetime.today().weekday() == 1:
-				day = str(tt9b.tue())
+				day = str(tt.tue('9b'))
 			elif datetime.datetime.today().weekday() == 2:
-				day = str(tt9b.wed())
+				day = str(tt.wed('9b'))
 			elif datetime.datetime.today().weekday() == 3:
-				day = str(tt9b.thur())
+				day = str(tt.thur('9b'))
 			elif datetime.datetime.today().weekday() == 4:
-				day = str(tt9b.fri())
+				day = str(tt.fri('9b'))
 			elif datetime.datetime.today().weekday() == 5:
-				day = str(tt9b.sat())
+				day = str(tt.sat('9b'))
 		elif l == '9-В':
 			if datetime.datetime.today().weekday() == 0:
-				day = str(tt9v.mon())
+				day = str(tt.mon('9v'))
 			elif datetime.datetime.today().weekday() == 1:
-				day = str(tt9v.tue())
+				day = str(tt.tue('9v'))
 			elif datetime.datetime.today().weekday() == 2:
-				day = str(tt9v.wed())
+				day = str(tt.wed('9v'))
 			elif datetime.datetime.today().weekday() == 3:
-				day = str(tt9v.thur())
+				day = str(tt.thur('9v'))
 			elif datetime.datetime.today().weekday() == 4:
-				day = str(tt9v.fri())
+				day = str(tt.fri('9v'))
 			elif datetime.datetime.today().weekday() == 5:
-				day = str(tt9v.sat())
+				day = str(tt.sat('9v'))
 		elif l == '10-А':
 			if datetime.datetime.today().weekday() == 0:
-				day = str(tt10a.mon())
+				day = str(tt.mon('10a'))
 			elif datetime.datetime.today().weekday() == 1:
-				day = str(tt10a.tue())
+				day = str(tt.tue('10a'))
 			elif datetime.datetime.today().weekday() == 2:
-				day = str(tt10a.wed())
+				day = str(tt.wed('10a'))
 			elif datetime.datetime.today().weekday() == 3:
-				day = str(tt10a.thur())
+				day = str(tt.thur('10a'))
 			elif datetime.datetime.today().weekday() == 4:
-				day = str(tt10a.fri())
+				day = str(tt.fri('10a'))
 			elif datetime.datetime.today().weekday() == 5:
-				day = str(tt10a.sat())
+				day = str(tt.sat('10a'))
 		elif l == '10-Б':
 			if datetime.datetime.today().weekday() == 0:
-				day = str(tt10b.mon())
+				day = str(tt.mon('10b'))
 			elif datetime.datetime.today().weekday() == 1:
-				day = str(tt10b.tue())
+				day = str(tt.tue('10b'))
 			elif datetime.datetime.today().weekday() == 2:
-				day = str(tt10b.wed())
+				day = str(tt.wed('10b'))
 			elif datetime.datetime.today().weekday() == 3:
-				day = str(tt10b.thur())
+				day = str(tt.thur('10b'))
 			elif datetime.datetime.today().weekday() == 4:
-				day = str(tt10b.fri())
+				day = str(tt.fri('10b'))
 			elif datetime.datetime.today().weekday() == 5:
-				day = str(tt10b.sat())
+				day = str(tt.sat('10b'))
 		elif l == '10-В':
 			if datetime.datetime.today().weekday() == 0:
-				day = str(tt10v.mon())
+				day = str(tt.mon('10v'))
 			elif datetime.datetime.today().weekday() == 1:
-				day = str(tt10v.tue())
+				day = str(tt.tue('10v'))
 			elif datetime.datetime.today().weekday() == 2:
-				day = str(tt10v.wed())
+				day = str(tt.wed('10v'))
 			elif datetime.datetime.today().weekday() == 3:
-				day = str(tt10v.thur())
+				day = str(tt.thur('10v'))
 			elif datetime.datetime.today().weekday() == 4:
-				day = str(tt10v.fri())
+				day = str(tt.fri('10v'))
 			elif datetime.datetime.today().weekday() == 5:
-				day = str(tt10v.sat())
+				day = str(tt.sat('10v'))
 		elif l == '11-А':
 			if datetime.datetime.today().weekday() == 0:
-				day = str(tt11a.mon())
+				day = str(tt.mon('11a'))
 			elif datetime.datetime.today().weekday() == 1:
-				day = str(tt11a.tue())
+				day = str(tt.tue('11a'))
 			elif datetime.datetime.today().weekday() == 2:
-				day = str(tt11a.wed())
+				day = str(tt.wed('11a'))
 			elif datetime.datetime.today().weekday() == 3:
-				day = str(tt11a.thur())
+				day = str(tt.thur('11a'))
 			elif datetime.datetime.today().weekday() == 4:
-				day = str(tt11a.fri())
+				day = str(tt.fri('11a'))
 			elif datetime.datetime.today().weekday() == 5:
-				day = str(tt11a.sat())
+				day = str(tt.sat('11a'))
 		elif l == '11-Б':
 			if datetime.datetime.today().weekday() == 0:
-				day = str(tt11b.mon())
+				day = str(tt.mon('11b'))
 			elif datetime.datetime.today().weekday() == 1:
-				day = str(tt11b.tue())
+				day = str(tt.tue('11b'))
 			elif datetime.datetime.today().weekday() == 2:
-				day = str(tt11b.wed())
+				day = str(tt.wed('11b'))
 			elif datetime.datetime.today().weekday() == 3:
-				day = str(tt11b.thur())
+				day = str(tt.thur('11b'))
 			elif datetime.datetime.today().weekday() == 4:
-				day = str(tt11b.fri())
+				day = str(tt.fri('11b'))
 			elif datetime.datetime.today().weekday() == 5:
-				day = str(tt11b.sat())
+				day = str(tt.sat('11b'))
 		elif l == '11-В':
 			if datetime.datetime.today().weekday() == 0:
-				day = str(tt11v.mon())
+				day = str(tt.mon('11v'))
 			elif datetime.datetime.today().weekday() == 1:
-				day = str(tt11v.tue())
+				day = str(tt.tue('11v'))
 			elif datetime.datetime.today().weekday() == 2:
-				day = str(tt11v.wed())
+				day = str(tt.wed('11v'))
 			elif datetime.datetime.today().weekday() == 3:
-				day = str(tt11v.thur())
+				day = str(tt.thur('11v'))
 			elif datetime.datetime.today().weekday() == 4:
-				day = str(tt11v.fri())
+				day = str(tt.fri('11v'))
 			elif datetime.datetime.today().weekday() == 5:
-				day = str(tt11v.sat())
+				day = str(tt.sat('11v'))
 		return day
